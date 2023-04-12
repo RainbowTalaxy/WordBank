@@ -11,6 +11,9 @@
 		7EEB001829E6889F00221942 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB001729E6889F00221942 /* ContentView.swift */; };
 		7EEB001A29E688A100221942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB001929E688A100221942 /* Assets.xcassets */; };
 		7EEB001E29E688A100221942 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EEB001D29E688A100221942 /* Preview Assets.xcassets */; };
+		7EEB002629E6890E00221942 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002429E6890E00221942 /* Model.xcdatamodeld */; };
+		7EEB002B29E6962400221942 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002729E6962400221942 /* Word+CoreDataClass.swift */; };
+		7EEB002D29E6962400221942 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002929E6962400221942 /* Book+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		7EEB001929E688A100221942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EEB001B29E688A100221942 /* WordBank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordBank.entitlements; sourceTree = "<group>"; };
 		7EEB001D29E688A100221942 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7EEB002529E6890E00221942 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7EEB002729E6962400221942 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7EEB002929E6962400221942 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,9 @@
 		7EEB000929E6889F00221942 = {
 			isa = PBXGroup;
 			children = (
+				7EEB002729E6962400221942 /* Word+CoreDataClass.swift */,
+				7EEB002929E6962400221942 /* Book+CoreDataClass.swift */,
+				7EEB002429E6890E00221942 /* Model.xcdatamodeld */,
 				7EEB001429E6889F00221942 /* WordBank */,
 				7EEB001329E6889F00221942 /* Products */,
 			);
@@ -141,6 +150,9 @@
 			files = (
 				7EEB001829E6889F00221942 /* ContentView.swift in Sources */,
 				7EEB001629E6889F00221942 /* WordBankApp.swift in Sources */,
+				7EEB002629E6890E00221942 /* Model.xcdatamodeld in Sources */,
+				7EEB002D29E6962400221942 /* Book+CoreDataClass.swift in Sources */,
+				7EEB002B29E6962400221942 /* Word+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +366,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7EEB002429E6890E00221942 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7EEB002529E6890E00221942 /* Model.xcdatamodel */,
+			);
+			currentVersion = 7EEB002529E6890E00221942 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7EEB000A29E6889F00221942 /* Project object */;
 }
