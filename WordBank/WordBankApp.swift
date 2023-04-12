@@ -12,6 +12,7 @@ struct WordBankApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, Storage.container.viewContext)
         }
     }
 }

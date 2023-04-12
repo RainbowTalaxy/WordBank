@@ -14,6 +14,11 @@
 		7EEB002629E6890E00221942 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002429E6890E00221942 /* Model.xcdatamodeld */; };
 		7EEB002B29E6962400221942 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002729E6962400221942 /* Word+CoreDataClass.swift */; };
 		7EEB002D29E6962400221942 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB002929E6962400221942 /* Book+CoreDataClass.swift */; };
+		7EEB003629E69E1900221942 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB003529E69E1900221942 /* Storage.swift */; };
+		7EEB004129E6A55600221942 /* WordBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004029E6A55600221942 /* WordBookList.swift */; };
+		7EEB004329E6A6D300221942 /* WordBookForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004229E6A6D300221942 /* WordBookForm.swift */; };
+		7EEB004629E6B1F000221942 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004529E6B1F000221942 /* Date+Extension.swift */; };
+		7EEB004829E6B88200221942 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004729E6B88200221942 /* WordList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		7EEB002729E6962400221942 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7EEB002929E6962400221942 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7EEB003329E69A7500221942 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7EEB003529E69E1900221942 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7EEB004029E6A55600221942 /* WordBookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookList.swift; sourceTree = "<group>"; };
+		7EEB004229E6A6D300221942 /* WordBookForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookForm.swift; sourceTree = "<group>"; };
+		7EEB004529E6B1F000221942 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7EEB004729E6B88200221942 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				7EEB003329E69A7500221942 /* README.md */,
-				7EEB002729E6962400221942 /* Word+CoreDataClass.swift */,
-				7EEB002929E6962400221942 /* Book+CoreDataClass.swift */,
-				7EEB002429E6890E00221942 /* Model.xcdatamodeld */,
 				7EEB001429E6889F00221942 /* WordBank */,
 				7EEB001329E6889F00221942 /* Products */,
 			);
@@ -63,9 +70,12 @@
 		7EEB001429E6889F00221942 /* WordBank */ = {
 			isa = PBXGroup;
 			children = (
+				7EEB004429E6B1CC00221942 /* Tool */,
+				7EEB003429E69DD100221942 /* Model */,
+				7EEB003F29E6A50B00221942 /* View */,
 				7EEB001529E6889F00221942 /* WordBankApp.swift */,
-				7EEB001729E6889F00221942 /* ContentView.swift */,
 				7EEB001929E688A100221942 /* Assets.xcassets */,
+				7EEB002429E6890E00221942 /* Model.xcdatamodeld */,
 				7EEB001B29E688A100221942 /* WordBank.entitlements */,
 				7EEB001C29E688A100221942 /* Preview Content */,
 			);
@@ -78,6 +88,35 @@
 				7EEB001D29E688A100221942 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7EEB003429E69DD100221942 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7EEB002729E6962400221942 /* Word+CoreDataClass.swift */,
+				7EEB002929E6962400221942 /* Book+CoreDataClass.swift */,
+				7EEB003529E69E1900221942 /* Storage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7EEB003F29E6A50B00221942 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7EEB001729E6889F00221942 /* ContentView.swift */,
+				7EEB004029E6A55600221942 /* WordBookList.swift */,
+				7EEB004229E6A6D300221942 /* WordBookForm.swift */,
+				7EEB004729E6B88200221942 /* WordList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7EEB004429E6B1CC00221942 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7EEB004529E6B1F000221942 /* Date+Extension.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +189,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EEB004329E6A6D300221942 /* WordBookForm.swift in Sources */,
 				7EEB001829E6889F00221942 /* ContentView.swift in Sources */,
 				7EEB001629E6889F00221942 /* WordBankApp.swift in Sources */,
+				7EEB004129E6A55600221942 /* WordBookList.swift in Sources */,
 				7EEB002629E6890E00221942 /* Model.xcdatamodeld in Sources */,
 				7EEB002D29E6962400221942 /* Book+CoreDataClass.swift in Sources */,
 				7EEB002B29E6962400221942 /* Word+CoreDataClass.swift in Sources */,
+				7EEB003629E69E1900221942 /* Storage.swift in Sources */,
+				7EEB004629E6B1F000221942 /* Date+Extension.swift in Sources */,
+				7EEB004829E6B88200221942 /* WordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +345,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.talaxy.WordBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,7 +385,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.talaxy.WordBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
