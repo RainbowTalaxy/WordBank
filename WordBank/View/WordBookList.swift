@@ -11,24 +11,20 @@ struct WordBookList: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Book.date, ascending: false)])
     var books: FetchedResults<Book>
     
-    @State private var currentBook: Book?
     @State private var isFormVisible = false
     
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Word book")) {
+                Section(header: Text("Books")) {
                     ForEach(books) { book in
                         NavigationLink {
-                            EmptyView()
+                            WordList(book: book)
                         } label: {
                             HStack {
                                 Label {
                                     HStack {
                                         Text(book.title ?? "Untitled")
-                                        Spacer()
-                                        Text(book.date!.format(in: "yyyy/MM/dd"))
-                                            .foregroundColor(.secondary)
                                     }
                                 } icon: {
                                     Image(systemName: "text.book.closed")
@@ -43,10 +39,9 @@ struct WordBookList: View {
                     }
                 }
             }
-            .navigationTitle("Word Bank")
+            .navigationTitle("WordBank")
             .toolbar {
                 Button {
-                    currentBook = nil
                     isFormVisible = true
                 } label: {
                     Image(systemName: "plus")
@@ -54,7 +49,7 @@ struct WordBookList: View {
             }
         }
         .sheet(isPresented: $isFormVisible) {
-            WordBookForm(book: currentBook)
+            WordBookForm()
         }
     }
 }

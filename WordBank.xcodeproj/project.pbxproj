@@ -19,6 +19,7 @@
 		7EEB004329E6A6D300221942 /* WordBookForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004229E6A6D300221942 /* WordBookForm.swift */; };
 		7EEB004629E6B1F000221942 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004529E6B1F000221942 /* Date+Extension.swift */; };
 		7EEB004829E6B88200221942 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004729E6B88200221942 /* WordList.swift */; };
+		7EEB004A29E6F21300221942 /* WordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEB004929E6F21300221942 /* WordForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		7EEB004229E6A6D300221942 /* WordBookForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookForm.swift; sourceTree = "<group>"; };
 		7EEB004529E6B1F000221942 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7EEB004729E6B88200221942 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		7EEB004929E6F21300221942 /* WordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				7EEB004029E6A55600221942 /* WordBookList.swift */,
 				7EEB004229E6A6D300221942 /* WordBookForm.swift */,
 				7EEB004729E6B88200221942 /* WordList.swift */,
+				7EEB004929E6F21300221942 /* WordForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				7EEB001829E6889F00221942 /* ContentView.swift in Sources */,
 				7EEB001629E6889F00221942 /* WordBankApp.swift in Sources */,
 				7EEB004129E6A55600221942 /* WordBookList.swift in Sources */,
+				7EEB004A29E6F21300221942 /* WordForm.swift in Sources */,
 				7EEB002629E6890E00221942 /* Model.xcdatamodeld in Sources */,
 				7EEB002D29E6962400221942 /* Book+CoreDataClass.swift in Sources */,
 				7EEB002B29E6962400221942 /* Word+CoreDataClass.swift in Sources */,

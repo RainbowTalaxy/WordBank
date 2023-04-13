@@ -14,6 +14,10 @@ struct WordBookForm: View {
     
     let book: Book?
     
+    init(book: Book? = nil) {
+        self.book = book
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -22,11 +26,11 @@ struct WordBookForm: View {
                         .focused($focues)
                 }
             }
-            .navigationTitle("\(book != nil ? "Update" : "New") word book")
+            .navigationTitle("\(book != nil ? "Update" : "New") book")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button("Cancel", action: {
                 dismiss()
-            }), trailing: Button("Add", action: {
+            }), trailing: Button("Save", action: {
                 if let book {
                     Storage.updateBook(book: book, title: title)
                 } else {
