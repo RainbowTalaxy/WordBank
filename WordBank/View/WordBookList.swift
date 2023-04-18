@@ -12,6 +12,8 @@ struct WordBookList: View {
     var books: FetchedResults<Book>
     
     @State private var isFormVisible = false
+    @State private var isAlertVisible = false
+    @State private var book: Book?
     
     var body: some View {
         NavigationView {
@@ -34,7 +36,8 @@ struct WordBookList: View {
                     }
                     .onDelete { indexes in
                         for index in indexes {
-                            Storage.deleteBook(book: books[index])
+                            self.book = books[index]
+                            isAlertVisible = true
                         }
                     }
                 }
@@ -51,5 +54,17 @@ struct WordBookList: View {
         .sheet(isPresented: $isFormVisible) {
             WordBookForm()
         }
+        .alert("Delete book \"\(book?.title ?? "")\"?", isPresented: $isAlertVisible) {
+            Button(role: .destructive) {
+                if let book = book {
+                    Storage.deleteBook(book: book)
+                }
+            } label: {
+                Text("Delete")
+            }
+        } message: {
+            EmptyView()
+        }
+        
     }
 }

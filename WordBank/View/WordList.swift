@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WordList: View {
     @FetchRequest var words: FetchedResults<Word>
+    @EnvironmentObject var query: Query
     @State private var isFormVisible = false
     @State private var isBookFormVisible = false
     let book: Book
@@ -26,19 +27,20 @@ struct WordList: View {
     }
     
     var body: some View {
-        List {
-            ForEach(words) { word in
-                HStack {
-                    Text(word.name ?? "N/A")
-                        .font(.system(size: 18))
-                    Spacer()
-                    Text(partOfSpeech(word: word))
-                        .foregroundColor(.secondary)
-                        .font(.custom("Georgia", size: 14))
-                        .italic()
-                    Text(word.definition ?? "")
+        ZStack {
+            List {
+                ForEach(words) { word in
+                    HStack {
+                        QueryableWord(word: word)
+                        Spacer()
+                        Text(partOfSpeech(word: word))
+                            .foregroundColor(.secondary)
+                            .font(.custom("Georgia", size: 14))
+                            .italic()
+                        Text(word.definition ?? "")
+                    }
+                    
                 }
-                
             }
         }
         .navigationTitle(book.title ?? "Untitled")
@@ -62,6 +64,14 @@ struct WordList: View {
         }
         .sheet(isPresented: $isBookFormVisible) {
             WordBookForm(book: book)
+        }
+        .sheet(isPresented: $query.isPopuped, onDismiss: {
+            query.close()
+        }) {
+            NavigationView {
+                DictionaryView(word: query.word ?? "NULL")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
     }
 }

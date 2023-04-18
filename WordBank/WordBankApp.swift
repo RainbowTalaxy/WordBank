@@ -13,6 +13,7 @@ struct WordBankApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, Storage.container.viewContext)
+                .environmentObject(Query())
         }
     }
 }
