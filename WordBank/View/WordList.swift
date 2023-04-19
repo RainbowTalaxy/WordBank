@@ -12,6 +12,8 @@ struct WordList: View {
     @EnvironmentObject var query: Query
     @State private var isFormVisible = false
     @State private var isBookFormVisible = false
+    @State private var isSyncAlertVisible = false
+    @State private var isSync = false
     let book: Book
     
     init(book: Book) {
@@ -53,6 +55,20 @@ struct WordList: View {
                     Image(systemName: "pencil")
                 }
                 Button {
+                    isSync = true
+                    Transfer.upload(book: book) {
+                        withAnimation {
+                            isSync = false
+                        }
+                    } onError: {
+                        isSync = false
+                        isSyncAlertVisible = true
+                    }
+                } label: {
+                    Image(systemName: "paperplane")
+                }
+                .disabled(isSync)
+                Button {
                     isFormVisible = true
                 } label: {
                     Image(systemName: "plus")
@@ -73,5 +89,6 @@ struct WordList: View {
                     .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .alert("Failed to sync", isPresented: $isSyncAlertVisible) {}
     }
 }

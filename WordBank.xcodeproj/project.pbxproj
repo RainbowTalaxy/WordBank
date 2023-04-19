@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E11056129F0049D007AE397 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11056029F0049D007AE397 /* Transfer.swift */; };
+		7E11056329F00D3D007AE397 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11056229F00D3D007AE397 /* JSONData.swift */; };
 		7E91AFE829EEB22F00C45474 /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91AFE729EEB22F00C45474 /* DictionaryView.swift */; };
 		7E91AFEA29EEB5DA00C45474 /* QueryableWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91AFE929EEB5DA00C45474 /* QueryableWord.swift */; };
 		7E91AFED29EEBD1400C45474 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E91AFEC29EEBD1400C45474 /* Query.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E11056029F0049D007AE397 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
+		7E11056229F00D3D007AE397 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		7E91AFE729EEB22F00C45474 /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		7E91AFE929EEB5DA00C45474 /* QueryableWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryableWord.swift; sourceTree = "<group>"; };
 		7E91AFEC29EEBD1400C45474 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				7EEB002729E6962400221942 /* Word+CoreDataClass.swift */,
 				7EEB002929E6962400221942 /* Book+CoreDataClass.swift */,
 				7EEB003529E69E1900221942 /* Storage.swift */,
+				7E11056029F0049D007AE397 /* Transfer.swift */,
+				7E11056229F00D3D007AE397 /* JSONData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EEB004329E6A6D300221942 /* WordBookForm.swift in Sources */,
+				7E11056129F0049D007AE397 /* Transfer.swift in Sources */,
 				7EEB001829E6889F00221942 /* ContentView.swift in Sources */,
 				7EEB001629E6889F00221942 /* WordBankApp.swift in Sources */,
 				7EEB004129E6A55600221942 /* WordBookList.swift in Sources */,
@@ -223,6 +230,7 @@
 				7EEB003629E69E1900221942 /* Storage.swift in Sources */,
 				7EEB004629E6B1F000221942 /* Date+Extension.swift in Sources */,
 				7EEB004829E6B88200221942 /* WordList.swift in Sources */,
+				7E11056329F00D3D007AE397 /* JSONData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
