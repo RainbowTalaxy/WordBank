@@ -39,12 +39,12 @@ struct BookData: Codable {
     }
 }
 
-struct UploadBookData: Codable {
-    let userId: String
-    let book: BookData
-    
-    init(from book: Book, userId: String) {
-        self.userId = userId
-        self.book = BookData(from: book)
-    }
+struct BookInfoData: Codable {
+    let id: UUID
+    let date: Date
+    let title: String
+}
+
+struct BookListData: Codable {
+    let books: [BookInfoData]
 }

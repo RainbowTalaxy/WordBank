@@ -14,10 +14,27 @@ struct WordBookList: View {
     @State private var isFormVisible = false
     @State private var isAlertVisible = false
     @State private var book: Book?
+    @State private var syncList: [BookInfoData]?
     
     var body: some View {
         NavigationView {
             List {
+                if let syncList = syncList {
+                    Section(header: Text("Sync list")) {
+                        ForEach(syncList, id: \.id) { book in
+                            HStack {
+                                Label {
+                                    HStack {
+                                        Text(book.title)
+                                    }
+                                } icon: {
+                                    Image(systemName: "arrow.triangle.2.circlepath")
+                                }
+                            }
+                        }
+                    }
+                }
+                
                 Section(header: Text("Books")) {
                     ForEach(books) { book in
                         NavigationLink {
@@ -44,6 +61,15 @@ struct WordBookList: View {
             }
             .navigationTitle("WordBank")
             .toolbar {
+                Button {
+                    Transfer.getBookList { list in
+                        withAnimation {
+                            syncList = list.books
+                        }
+                    }
+                } label: {
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                }
                 Button {
                     isFormVisible = true
                 } label: {
