@@ -13,7 +13,11 @@ struct WordList: View {
     @State private var isFormVisible = false
     @State private var isBookFormVisible = false
     @State private var isSyncAlertVisible = false
+    @State private var isDeleteAlertVisible = false
     @State private var isSync = false
+    @State private var isEditable = false
+    @State private var targetWord: Word? = nil
+    @State private var deleteWord: Word? = nil
     let book: Book
     
     init(book: Book) {
@@ -31,17 +35,37 @@ struct WordList: View {
     var body: some View {
         ZStack {
             List {
-                ForEach(words) { word in
-                    HStack {
-                        QueryableWord(word: word)
-                        Spacer()
-                        Text(partOfSpeech(word: word))
-                            .foregroundColor(.secondary)
-                            .font(.custom("Georgia", size: 14))
-                            .italic()
-                        Text(word.definition ?? "")
+                Section {
+                    Toggle("Edit", isOn: $isEditable)
+                }
+                
+                Section {
+                    ForEach(words) { word in
+                        HStack(spacing: 20) {
+                            QueryableWord(word: word)
+                            Spacer()
+                            HStack {
+                                Text(partOfSpeech(word: word))
+                                    .foregroundColor(.secondary)
+                                    .font(.custom("Georgia", size: 14))
+                                    .italic()
+                                Text(word.definition ?? "")
+                            }
+                            if isEditable {
+                                Image(systemName: "square.and.pencil")
+                                    .foregroundColor(.blue)
+                                    .onTapGesture {
+                                        targetWord = word
+                                    }
+
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                                    .onTapGesture {
+                                        deleteWord = word
+                                    }
+                            }
+                        }
                     }
-                    
                 }
             }
         }
@@ -75,8 +99,11 @@ struct WordList: View {
                 }
             }
         })
-        .sheet(isPresented: $isFormVisible) {
-            WordForm(book: book, word: nil)
+        .sheet(isPresented: $isFormVisible, onDismiss: {
+            isFormVisible = false
+            targetWord = nil
+        }) {
+            WordForm(book: book, word: targetWord)
         }
         .sheet(isPresented: $isBookFormVisible) {
             WordBookForm(book: book)
@@ -90,5 +117,31 @@ struct WordList: View {
             }
         }
         .alert("Failed to sync", isPresented: $isSyncAlertVisible) {}
+        .alert("Delete word \"\(targetWord?.name ?? "")\"?", isPresented: $isDeleteAlertVisible) {
+            Button(role: .destructive) {
+                if let word = targetWord {
+                    Storage.deleteWord(word: word, from: book)
+                }
+            } label: {
+                Text("Delete")
+            }
+        } message: {
+            EmptyView()
+        }
+        .onChange(of: targetWord) { newValue in
+            if newValue != nil {
+                isFormVisible = true
+            }
+        }
+        .onChange(of: deleteWord) { newValue in
+            if newValue != nil {
+                isDeleteAlertVisible = true
+            }
+        }
+        .onChange(of: isDeleteAlertVisible) { newValue in
+            if !newValue {
+                deleteWord = nil
+            }
+        }
     }
 }

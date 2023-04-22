@@ -19,8 +19,13 @@ struct WordForm: View {
     @State private var definition = ""
     @State private var keepForm = false
     
-    let book: Book?
+    let book: Book
     let word: Word?
+    
+    init(book: Book, word: Word? = nil) {
+        self.book = book
+        self.word = word
+    }
     
     var body: some View {
         NavigationView {
@@ -57,7 +62,9 @@ struct WordForm: View {
                             }
                         }
                     
-                    Toggle("Keep form", isOn: $keepForm)
+                    if word == nil {
+                        Toggle("Keep form", isOn: $keepForm)
+                    }
                 }
             }
             .navigationTitle("\(word != nil ? "Update" : "New") word")
@@ -70,25 +77,25 @@ struct WordForm: View {
             }))
         }
         .onAppear {
+            if let word = word {
+                name = word.name ?? ""
+                partOfSpeech = word.partOfSpeech ?? ""
+                definition = word.definition ?? ""
+            }
             focusedField = .word
-            name = word?.name ?? ""
-            partOfSpeech = word?.partOfSpeech ?? ""
-            definition = word?.definition ?? ""
         }
     }
     
     func submit() {
-        if let book {
-            if let word = word {
-                
-            } else {
-                Storage.addWord(
-                    to: book,
-                    name: name,
-                    partOfSpeech: partOfSpeech,
-                    definition: definition
-                )
-            }
+        if let word = word {
+            Storage.updateWord(book: book, word: word, name: name, partOfSpeech: partOfSpeech, definition: definition)
+        } else {
+            Storage.addWord(
+                to: book,
+                name: name,
+                partOfSpeech: partOfSpeech,
+                definition: definition
+            )
         }
     }
 }

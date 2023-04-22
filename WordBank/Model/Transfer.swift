@@ -7,7 +7,7 @@
 
 import Foundation
 
-let userId = "test"
+let userId = "talaxy"
 
 class Transfer {
     static let baseUrl = "https://blog.talaxy.cn/public-api/word-bank"
